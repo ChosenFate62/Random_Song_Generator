@@ -4,7 +4,7 @@ import random as randint
 
 main = tk.Tk()
 
-movieList = {"Action":["Thor: Love and Thunder", "Spider-Man", "Into the SpiderVerse", "Ant-Man Quantamania", "Pizza", "Black Panther", "Black Panther 2"]}
+movieList = {"Action":["Thor: Love and Thunder", "Spider-Man", "Into the SpiderVerse", "Ant-Man Quantamania", "Black Panther", "Black Panther 2","Iron-Man Trilogy"], "Comedy":["My Cousin Vinny","Ted","Ted 2", "Step Brothers(2008)","The Family Plan","Old Dads"],"History":["Napoleon","All Quiet on the Western Front","Operation Valkyrie","Rustin","Tetris","Sound of Freedom"]}
 
 
 frontText = tk.Label(main, text = "This is Victor's Movie Recommendation\n based on categories.")
