@@ -74,8 +74,8 @@ def Game():
         print("Time for War")
         War(p1,p2)
         
-bo = True
-while bo == True or len(player1Card) != 52 or len(player2Card) != 52:
+game_on = True
+while game_on == True or len(player1Card) != 52 or len(player2Card) != 52:
     User = input("Do you want to keep playing. Y/N ").capitalize()
     if User == "Y":
         Game()
