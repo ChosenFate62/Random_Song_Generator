@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import *
 from functools import partial
 import urllib.request
+import webbrowser
 import re
 
  
@@ -60,19 +61,20 @@ def RandomizeScreen(Finished_list):
     SongOutput = Finished_list[OutputSongNum] 
     
     WebsiteSearch = str(SongOutput).replace(" ", "+")
-      
-    #Line 65-68 borrowed from https://codefather.tech/blog/youtube-search-python/
+    
     websitestart = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + WebsiteSearch)
     video_link = re.findall(r"watch\?v=(\S{11})", websitestart.read().decode())
     
-    SongWebsite = "https://www.youtube.com/watch?v=" + video_link[0]
-    print("https://www.youtube.com/watch?v=" + video_link[0])
+    SongWebsite = "https://music.youtube.com/watch?v=" + video_link[0]
+    webbrowser.open(SongWebsite)
     
-    WebsiteSong = "The Youtube URL of the Song is " + SongWebsite
+    
+    WebsiteSong = "Enjoy this music session"
+    
     OutputSong = "The Song you should start with is, " + SongOutput
 
     
-    #Creating Labels and Buttons
+    #Creating Labels and Buttons for the second screen
     FinalLabel = tk.Label(Rand, text = OutputSong,font = '40').pack(pady = 10)
     
     WebsiteLink = tk.Label(Rand, text = WebsiteSong, font = '40').pack(pady = 5)
@@ -81,7 +83,7 @@ def RandomizeScreen(Finished_list):
 
     Rand.mainloop()
 
-#Using tkdocs.com/tutorial/index.html
+
     
      
 #Creating the screen
@@ -93,7 +95,6 @@ main.title("Random Starter Song")
         
 
 Song_list = []
-Song_list_repetition_checker = []
 SongWebsite = ''
 
 SongName = tk.Variable()
