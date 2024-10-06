@@ -11,24 +11,30 @@ Number.grid(row = 0, column = 2, columnspan  = 3, padx = 10, pady = 10)
 
 def button_add(value):
     Number.insert(tk.END, value)
-    
-def operator(con):
-    global plus
-    plus = userInput.get()
-    Number.delete(0, tk.END)
-    global operation
-    operation = con
-    
 
-def equal(a):
-    second = userInput.get()
-    if a == "+":
-        mo = int(plus) + int(second)
-    elif a == "-":
-        mo = int(plus) - int(second)
+#Collects the operator when the button is pressed
+def operator(con):
+    global initial
+    initial = userInput.get()
+    Number.delete(0, tk.END) #Deletes initial number to allow the next number to collect
+    global operation
+    operation = con #Defines the operator selected by the user for future use
+    
+#Solves the equation
+def equal(operator):
+    second = userInput.get() #Collects the second number inputted by the 
+
+    if operator == "+":
+        solution = int(initial) + int(second)
+    elif operator == "-":
+        solution = int(initial) - int(second)
+    elif operator == "*":
+        solution = int(initial) * int(initial)
+    
+    
         
     Number.delete(0,tk.END)
-    Number.insert(tk.END,mo)
+    Number.insert(tk.END,solution)
 
 
 
@@ -57,8 +63,10 @@ button_plus = tk.Button(main, text = "+", padx = 40, pady =20, command = lambda:
 button_plus.grid(column = 1,row = 5)
 button_plus = tk.Button(main, text = "-", padx = 40, pady =20, command = lambda:operator("-"))
 button_plus.grid(column = 2,row = 5)
+button_plus = tk.Button(main, text = "x", padx = 40, pady =20, command = lambda:operator("*"))
+button_plus.grid(column = 3,row = 5)
 button_equal = tk.Button(main, text = "=", padx = 40, pady =20, command = lambda:equal(operation))
-button_equal.grid(column = 3,row = 5)
+button_equal.grid(column = 2,row = 6)
 
 
 
